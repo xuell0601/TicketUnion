@@ -30,6 +30,9 @@ class MyAppState extends State<MyApp> {
 
 
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.amber,
+      ),
 
       debugShowCheckedModeBanner: false,
       title: "sd",

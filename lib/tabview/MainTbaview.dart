@@ -4,6 +4,7 @@ import 'package:ticketunion/pages/CatePages.dart';
 import 'package:ticketunion/pages/HomePages.dart';
 import 'package:ticketunion/pages/ShopPages.dart';
 import 'package:ticketunion/pages/UserPages.dart';
+import 'package:ticketunion/widgets/ScreenUtils.dart';
 
 class MainTabView extends StatefulWidget {
   @override
@@ -46,8 +47,7 @@ class MainTabViewState extends State<MainTabView> {
 
   @override
   Widget build(BuildContext context) {
-    //初始化对象
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+    ScreenUtils.init(context);
     return Scaffold(
       body: Container(
 

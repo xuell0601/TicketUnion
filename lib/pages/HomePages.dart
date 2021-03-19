@@ -1,20 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-
 import 'package:flutter_swiper/flutter_swiper.dart';
-
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:ticketunion/model/CateModel.dart';
 import 'package:ticketunion/net/HttpManger.dart';
 import 'package:ticketunion/net/config.dart';
+import 'package:ticketunion/widgets/LoadingWidget.dart';
+import 'package:ticketunion/widgets/ScreenUtils.dart';
+import 'package:ticketunion/widgets/SearchWidget.dart';
 
 class HomePages extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return HomePagesState();
   }
 }
@@ -36,24 +33,22 @@ class HomePagesState extends State<HomePages>
                  print("----${cateModel.data[0].title}");
         });
     });
-    //getHot();
+
   }
 
 
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    print("重新加载");
+
     return Scaffold(
         appBar: AppBar(
-          title: Text("sd"),
+          title: SearchWidget(),
         ),
-      body: ListView.builder(
-          itemCount: cateModel.data.length,
-          itemBuilder: (context,index){
-          return Text("${cateModel.data[index].title}");
-      }),
+      body: Container(
+        height: ScreenUtils.height(100),
+        child: Text("sd"),
+      ),
     );
 
     //创建火爆专区的请求数据
