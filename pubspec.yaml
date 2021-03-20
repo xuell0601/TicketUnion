@@ -30,7 +30,7 @@ dependencies:
   provide: ^1.0.2
   shared_preferences: 0.5.3
   fluro: "^1.4.0"
-
+  barcode_scan: ^1.0.0
 
 dev_dependencies:
   flutter_test:

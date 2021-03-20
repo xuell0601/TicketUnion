@@ -1,8 +1,34 @@
+import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'ScreenUtils.dart';
 
 class SearchWidget extends StatelessWidget {
+  //  扫描二维码
+  Future scan() async {
+    try {
+      // 此处为扫码结果，barcode为二维码的内容
+      String barcode = await BarcodeScanner.scan();
+      print('扫码结果: ' + barcode);
+    } catch (e) {
+      if (e.code == BarcodeScanner.CameraAccessDenied) {
+        // 未授予APP相机权限
+        print('未授予APP相机权限');
+      } else {
+        // 扫码错误
+        print('扫码错误: $e');
+      }
+    } on FormatException {
+      // 进入扫码页面后未扫码就返回
+      print('进入扫码页面后未扫码就返回');
+    } catch (e) {
+      // 扫码错误
+      print('扫码错误: $e');
+    }
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -16,6 +42,7 @@ class SearchWidget extends StatelessWidget {
             flex: 1,
             child: InkWell(
               onTap: () {
+                scan();
                 print("扫码");
               },
               child: Icon(Icons.filter_center_focus),
