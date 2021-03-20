@@ -1,14 +1,16 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:provide/provide.dart';
+import 'package:ticketunion/provider/ChangeCate.dart';
+import 'package:ticketunion/provider/Count.dart';
 import 'package:ticketunion/tabview/MainTbaview.dart';
 
 
 void main() {
-
+            var changeCate=ChangeCate();
        var providers=Providers();
-      //  providers..provide(Provider<Count>.value(count))
-      // ..provide(Provider<ChangeCate>.value(changeCate))
+       providers
+      ..provide(Provider<ChangeCate>.value(changeCate));
       // ;
      
   runApp(ProviderNode(child: MyApp(), providers: providers));

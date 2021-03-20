@@ -4,15 +4,24 @@ import 'package:ticketunion/net/config.dart';
 
 
 //使用get方法
-Future getContent(url,{materialId,int page =0 }) async {
+Future getContent(url,{materialId=null,int page=null }) async {
   try {
     print('开始获取首页数据...............');
     Response response;
     Dio dio = new Dio();
-       if(materialId==null||page==null){
+       if(materialId==null&&page==null){
          response = await dio.get(url);
-       }else{
-         response = await dio.get(url,queryParameters: {"materialId":materialId , "page": page});
+         print("11111------99");
+       }else {
+         if(page!=null){
+           print("2222222--------------------1");
+           response = await dio.get(url+"/${page}");
+           print("33333333--------------------2");
+         }else if(page!=null&&materialId!=null){
+           print("44444444444--------------------3");
+           response = await dio.get(url +"${materialId}/${page}");
+         }
+
        }
     print("============${response.data.toString()}");
 

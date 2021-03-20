@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ticketunion/pages/CatePages.dart';
 import 'package:ticketunion/pages/HomePages.dart';
-import 'package:ticketunion/pages/ShopPages.dart';
+import 'package:ticketunion/pages/SellPages.dart';
 import 'package:ticketunion/pages/UserPages.dart';
 import 'package:ticketunion/widgets/ScreenUtils.dart';
 
@@ -26,7 +26,7 @@ class MainTabViewState extends State<MainTabView> {
 
     HomePages(),
     CatePages(),
-    ShopPages(),
+    SellPages(),
     UserPages(),
 
   ];
@@ -35,9 +35,9 @@ class MainTabViewState extends State<MainTabView> {
   final List<BottomNavigationBarItem> pages = [
 
     BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("首页")),
-    BottomNavigationBarItem(icon: Icon(Icons.category), title: Text("分类")),
+    BottomNavigationBarItem(icon: Icon(Icons.category), title: Text("精选")),
     BottomNavigationBarItem(
-        icon: Icon(Icons.shop), title: Text("购物车")),
+        icon: Icon(Icons.shop), title: Text("特惠")),
     BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("会员")),
   ];
 
