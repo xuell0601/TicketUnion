@@ -30,11 +30,7 @@ Flutter版本的领券联盟
 |  [pull_to_refresh](https://pub.dev/packages/pull_to_refresh)   |  上拉加载和下拉刷新   |
 |  [flutter_webview_plugin](https://pub.dev/packages/flutter_webview_plugin)   |  webview   |
 |  [provider](https://pub.dev/packages/provider)   |  状态管理   |
-|
-|
-|
-|
-|
+
 
 
 
