@@ -1,16 +1,42 @@
-# ticketunion
+ticketunion
+==========
+Flutter版本的领券联盟
 
-A new Flutter application.
 
-## Getting Started
+功能
+----------
+* 首页<br>
+* 精选<br>
+* 优惠<br>
+* 扫码<br>
+* .....<br>
 
-This project is a starting point for a Flutter application.
+项目截图
+------------------
+![avatar](/screenshots/screenshot_20210318113311874.jpg)
+![首页](https://github.com/xuell0601/flutter_shops/screenshots/screenshot_20210318113324934.jpg)
 
-A few resources to get you started if this is your first Flutter project:
+第三方框架
+-----------------
+| 名称        | 作用         |
+| ------------- |:-------------:|
+|  [flutter_swipe](https://github.com/best-flutter/flutter_swiper)     |轮播图 |
+|  [dio](https://github.com/flutterchina/dio)  | 网络框架      |
+|  [flutter_spinkit](https://github.com/jogboms/flutter_spinkit)   | 旋转组件    |
+|  [event_bus](https://github.com/marcojakob/dart-event-bus)   | 事件通知    |
+|  [flutter_html](https://github.com/Sub6Resources/flutter_html)   | html框架    |
+|  [flutter_screenutil](https://pub.dev/packages/flutter_screenutil)   | 屏幕适配    |
+|  [fluttertoast](https://pub.dev/packages/fluttertoast)   |  Toast   |
+|  [shared_preferences](https://pub.dev/packages/shared_preferences)   | 本地数据缓存    |
+|  [fluro](https://pub.dev/packages/fluro)   |  路由   |
+|  [city_pickers](https://pub.dev/packages/city_pickers)   |  城市选择   |
+|  [pull_to_refresh](https://pub.dev/packages/pull_to_refresh)   |  上拉加载和下拉刷新   |
+|  [flutter_webview_plugin](https://pub.dev/packages/flutter_webview_plugin)   |  webview   |
+|  [cached_network_image](https://pub.dev/packages/cached_network_image)   |  图片缓存   |
+|  [provider](https://pub.dev/packages/provider)   |  状态管理   |
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
+
