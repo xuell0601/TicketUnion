@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provide/provide.dart';
-
 import 'package:ticketunion/model/RecomModel.dart';
 import 'package:ticketunion/net/HttpManger.dart';
 import 'package:ticketunion/net/config.dart';
 import 'package:ticketunion/provider/ChangeCate.dart';
 import 'package:ticketunion/widgets/LoadingWidget.dart';
 import 'package:ticketunion/widgets/RightContent.dart';
+
 class CatePages extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -18,14 +18,11 @@ class CatePages extends StatefulWidget {
 
 class CatePagesState extends State<CatePages>
     with AutomaticKeepAliveClientMixin {
-
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    getContent(Config.recom_cate).then((data){
-
+    getContent(Config.recom_cate).then((data) {
       setState(() {
         RecomModel recomModel = RecomModel.fromJson(data);
 
@@ -33,31 +30,26 @@ class CatePagesState extends State<CatePages>
       });
     });
   }
-  var scrollController= new ScrollController();
-  int lastindx=0;
+
+  var scrollController = new ScrollController();
+  int lastindx = 0;
+
   //创建item列表
-
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("精选"),
-
       ),
       body: Container(
-        margin: EdgeInsets.only(top: 10),
+          margin: EdgeInsets.only(top: 10),
           child: Row(
             children: [
               //左侧导航栏的创建
               LeftNav(),
               Column(
-                children: <Widget>[
-
-                  RightContent()
-
-                ],
+                children: <Widget>[RightContent()],
               )
             ],
           )),
@@ -77,52 +69,41 @@ class LeftNav extends StatefulWidget {
 }
 
 class LeftNavState extends State<LeftNav> {
-  // List<Message> message = [];
-  // CateModel CateModels = null;
-  //
-  int lastindex=0;
-  List<Data> leftdatas=[];
+
+  int lastindex = 0;
+  List<Data> leftdatas = [];
+
   @override
   void initState() {
     super.initState();
     //请求数据分类数据
     getCate();
     //传值
-
-
   }
 
   void getCate() async {
     await getContent(Config.recom_cate).then((value) {
       setState(() {
-                   var recomModel = RecomModel.fromJson(value);
-                   leftdatas = recomModel.data;
-         Provide.value<ChangeCate>(context).setGoodId(leftdatas[lastindex].favoritesId);
-
+        var recomModel = RecomModel.fromJson(value);
+        leftdatas = recomModel.data;
+        Provide.value<ChangeCate>(context)
+            .setGoodId(leftdatas[lastindex].favoritesId);
       });
     });
   }
 
-
-
   // 左侧导航栏的创建
   Widget leftInkell(index) {
-
-
     return Container(
-      color: lastindex==index?Colors.lightBlue:Colors.white,
+      color: lastindex == index ? Colors.lightBlue : Colors.white,
       child: InkWell(
-        onTap: (){
+        onTap: () {
           setState(() {
-            lastindex=index;
-            var child=leftdatas[index].favoritesId;
+            lastindex = index;
+            var child = leftdatas[index].favoritesId;
             Provide.value<ChangeCate>(context).setGoodId(child);
-            // Provide.value<ChangeCate>(context).onLeftClick(lastindex);
-            // Provide.value<ChangeCate>(context).onClick(0);
           });
-
         },
-
         child: Container(
           height: ScreenUtil().setHeight(100),
           padding: EdgeInsets.fromLTRB(
@@ -130,7 +111,7 @@ class LeftNavState extends State<LeftNav> {
           decoration: BoxDecoration(
               color: Colors.black12,
               border:
-              Border(bottom: BorderSide(width: 1, color: Colors.black12))),
+                  Border(bottom: BorderSide(width: 1, color: Colors.black12))),
           child: Text(
             "${leftdatas[index].favoritesTitle}",
             style: TextStyle(),
@@ -155,7 +136,3 @@ class LeftNavState extends State<LeftNav> {
     );
   }
 }
-
-
-
-

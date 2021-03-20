@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-class  DetailsPage extends StatelessWidget{
+
+class DetailsPage extends StatelessWidget {
   DetailsPage(String goodsId);
 
   @override
@@ -13,6 +14,4 @@ class  DetailsPage extends StatelessWidget{
       body: Text("详情页面"),
     );
   }
-
-
 }

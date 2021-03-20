@@ -32,27 +32,27 @@ class GoodModel {
 
 class Data {
   int categoryId;
-  Null categoryName;
+  String  categoryName;
   String clickUrl;
   String commissionRate;
   int couponAmount;
   String couponClickUrl;
-  Null couponEndTime;
-  Null couponInfo;
+  String couponEndTime;
+  String  couponInfo;
   int couponRemainCount;
   String couponShareUrl;
   String couponStartFee;
-  Null couponStartTime;
+  String couponStartTime;
   int couponTotalCount;
   String itemDescription;
   int itemId;
   int levelOneCategoryId;
-  Null levelOneCategoryName;
-  Null nick;
+  String levelOneCategoryName;
+  String nick;
   String pictUrl;
   int sellerId;
-  Null shopTitle;
-  Null smallImages;
+   String shopTitle;
+  String smallImages;
   String title;
   int userType;
   int volume;
@@ -94,7 +94,7 @@ class Data {
     couponAmount = json['coupon_amount'];
     couponClickUrl = json['coupon_click_url'];
     couponEndTime = json['coupon_end_time'];
-    couponInfo = json['coupon_info'];
+
     couponRemainCount = json['coupon_remain_count'];
     couponShareUrl = json['coupon_share_url'];
     couponStartFee = json['coupon_start_fee'];
@@ -108,7 +108,7 @@ class Data {
     pictUrl = json['pict_url'];
     sellerId = json['seller_id'];
     shopTitle = json['shop_title'];
-    smallImages = json['small_images'];
+
     title = json['title'];
     userType = json['user_type'];
     volume = json['volume'];

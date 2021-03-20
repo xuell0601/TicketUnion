@@ -23,26 +23,21 @@ class MainTabViewState extends State<MainTabView> {
 
   //创建页面
   final List<Widget> _PagesTab = [
-
     HomePages(),
     CatePages(),
     SellPages(),
     UserPages(),
-
   ];
 
   //抽取底部组件
   final List<BottomNavigationBarItem> pages = [
-
     BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("首页")),
     BottomNavigationBarItem(icon: Icon(Icons.category), title: Text("精选")),
-    BottomNavigationBarItem(
-        icon: Icon(Icons.shop), title: Text("特惠")),
+    BottomNavigationBarItem(icon: Icon(Icons.shop), title: Text("特惠")),
     BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("会员")),
   ];
 
-
-  int _currntIndex = 2;
+  int _currntIndex = 0;
   PageController _pageController;
 
   @override
@@ -50,7 +45,6 @@ class MainTabViewState extends State<MainTabView> {
     ScreenUtils.init(context);
     return Scaffold(
       body: Container(
-
         child: PageView(
           physics: NeverScrollableScrollPhysics(),
           children: _PagesTab,
