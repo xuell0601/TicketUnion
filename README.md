@@ -13,9 +13,11 @@ Flutter版本的领券联盟
 
 项目截图
 ------------------
-![avatar](/screenshots/screenshot_20210318113311874.jpg)
-![首页](https://github.com/xuell0601/flutter_shops/screenshots/screenshot_20210318113324934.jpg)
-
+![avatar](/screenshots/1.jpg)
+![avatar](/screenshots/2.jpg)
+![avatar](/screenshots/3.jpg)
+![avatar](/screenshots/4.jpg)
+![avatar](/screenshots/5.jpg)
 第三方框架
 -----------------
 | 名称        | 作用         |
