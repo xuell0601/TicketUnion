@@ -138,7 +138,7 @@ class UserPagesState extends State<UserPages> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    postRequestFunction();
+   // postRequestFunction();
   }
 
   void postRequestFunction() async {

@@ -26,7 +26,7 @@ class MainTabViewState extends State<MainTabView> {
     HomePages(),
     CatePages(),
     SellPages(),
-    UserPages(),
+   // UserPages(),
   ];
 
   //抽取底部组件
@@ -34,10 +34,10 @@ class MainTabViewState extends State<MainTabView> {
     BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("首页")),
     BottomNavigationBarItem(icon: Icon(Icons.category), title: Text("精选")),
     BottomNavigationBarItem(icon: Icon(Icons.shop), title: Text("特惠")),
-     BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("会员")),
+    // BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("会员")),
   ];
 
-  int _currntIndex = 3;
+  int _currntIndex = 0;
   PageController _pageController;
 
   @override
