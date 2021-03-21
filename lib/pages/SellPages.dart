@@ -11,7 +11,7 @@ import 'package:ticketunion/net/HttpManger.dart';
 import 'package:ticketunion/net/config.dart';
 import 'package:ticketunion/widgets/LoadingWidget.dart';
 import 'package:ticketunion/widgets/ScreenUtils.dart';
-
+import 'package:ticketunion/route/Application.dart';
 class SellPages extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -50,12 +50,15 @@ class SellPagesState extends State<SellPages>
       print("cccccccccccc${sellList.toString()}");
       List<Widget> list = sellList.map((item) {
         String src = "https:${item.pictUrl}";
-
+        String url = "${item.couponShareUrl}";
         return Card(
             elevation: 15.0, //设置阴影
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(14.0))),
             child: InkWell(
+              onTap: (){
+                Application.router.navigateTo(context,"/detail?id=${Uri.encodeComponent(url)}&src=${Uri.encodeComponent(src)}");
+              },
               child: Container(
                 width: ScreenUtils.width(350),
                 padding: EdgeInsets.all(5.0),
@@ -103,7 +106,9 @@ class SellPagesState extends State<SellPages>
         ),
       );
     } else {
-      return Center(
+      return Container(
+        height: ScreenUtils.height(1330),
+        width: ScreenUtils.width(750),
         child: LoadingWidget(),
       );
     }
@@ -116,6 +121,8 @@ class SellPagesState extends State<SellPages>
         title: Text("特惠"),
       ),
       body: Container(
+        height: ScreenUtils.height(1334),
+        width: ScreenUtils.width(750),
         margin: EdgeInsets.only(top: 10),
         padding: EdgeInsets.all(1),
         child: EasyRefresh(

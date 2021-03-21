@@ -32,3 +32,26 @@ Future getContent(url, {materialId = null, int page = null}) async {
     return print('ERROR:======>${e}');
   }
 }
+
+Future  postRequestFunction(url) async {
+  String relurl="https:${url}";
+  print("开始post");
+  try {
+    //String url="https://api.sunofbeach.net/shop/tpwd";
+    ///创建Dio
+    Dio dio = new Dio();
+    var response = await dio.post(Config.ticurl, data: {
+      "url": "${relurl}"
+    });
+
+    print("============${response.data.toString()}");
+
+    if (response.statusCode == 200) {
+      return response.data;
+    } else {
+      throw Exception('后端接口出现异常，请检测代码和服务器情况.........');
+    }
+  } catch (e) {
+    return print('ERROR:======>${e}');
+  }
+}

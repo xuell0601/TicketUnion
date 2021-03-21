@@ -11,4 +11,5 @@ class Config{
   static String recom_cate =BASE_URL+"/recommend/categories";
   //精选页面的内荣
  static String recomgoods=BASE_URL+"/recommend";
+  static String ticurl="https://api.sunofbeach.net/shop/tpwd";
 }

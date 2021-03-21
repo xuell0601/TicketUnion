@@ -1,6 +1,8 @@
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ticketunion/widgets/ToastUtil.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'ScreenUtils.dart';
 
 class SearchWidget extends StatelessWidget {
@@ -9,6 +11,19 @@ class SearchWidget extends StatelessWidget {
     try {
       // 此处为扫码结果，barcode为二维码的内容
       String barcode = await BarcodeScanner.scan();
+
+
+      //处理扫描结果
+      if(barcode.contains("taobao.com")) {
+
+        //跳转到淘口令界面
+       // Application.router.navigateTo(context,"/detail?id=${Uri.encodeComponent(url)}&src=${Uri.encodeComponent(src)}");
+      } else {
+        //非法二维码
+       ToastUtil.showToast("非法二维码");
+      }
+
+
       print('扫码结果: ' + barcode);
     } catch (e) {
       if (e.code == BarcodeScanner.CameraAccessDenied) {

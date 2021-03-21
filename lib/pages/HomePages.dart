@@ -46,7 +46,7 @@ class HomePagesState extends State<HomePages>
           length: cateModel.data.length,
           vsync: this
       )..addListener((){
-        //print("uuuuuuuu${tabController.index}");
+        Provide.value<ChangeGood>(context).setCateName(cate[tabController.index].title);
         Provide.value<ChangeGood>(context).setGoodId(cate[tabController.index].id);
       });
 
@@ -56,12 +56,17 @@ class HomePagesState extends State<HomePages>
          cate=cateModel.data;
         goodid=cate[0].id;
         Provide.value<ChangeGood>(context).setGoodId(goodid);
+        Provide.value<ChangeGood>(context).setCateName(cate[0].title);
         //loadData(goodid,page);
         print("----${cateModel.data[0].title}");
       });
     });
   }
-
+  // Container(
+  // height: ScreenUtils.height(1330),
+  // width: ScreenUtils.width(750),
+  // child: LoadingWidget(),
+  // );
   Widget topTab(){
     return   Container(
 
@@ -101,25 +106,34 @@ class HomePagesState extends State<HomePages>
     );
 
   }
+
+  Widget _homeItems(){
+    return Column(
+      children: <Widget>[
+        topTab(),
+        ContextItem()
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: SearchWidget(),
       ),
-      body: Column(
-        children: <Widget>[
-          topTab(),
-          ContextItem()
-        ],
-      )
+      body: _homeItems()
     );
-
 
   }
 
   @override
   bool get wantKeepAlive => true;
+ @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
 
+ }
 
 }

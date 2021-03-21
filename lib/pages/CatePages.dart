@@ -8,6 +8,7 @@ import 'package:ticketunion/net/config.dart';
 import 'package:ticketunion/provider/ChangeCate.dart';
 import 'package:ticketunion/widgets/LoadingWidget.dart';
 import 'package:ticketunion/widgets/RightContent.dart';
+import 'package:ticketunion/widgets/ScreenUtils.dart';
 
 class CatePages extends StatefulWidget {
   @override
@@ -94,31 +95,40 @@ class LeftNavState extends State<LeftNav> {
 
   // 左侧导航栏的创建
   Widget leftInkell(index) {
-    return Container(
-      color: lastindex == index ? Colors.lightBlue : Colors.white,
-      child: InkWell(
-        onTap: () {
-          setState(() {
-            lastindex = index;
-            var child = leftdatas[index].favoritesId;
-            Provide.value<ChangeCate>(context).setGoodId(child);
-          });
-        },
-        child: Container(
-          height: ScreenUtil().setHeight(100),
-          padding: EdgeInsets.fromLTRB(
-              ScreenUtil().setHeight(30), ScreenUtil().setHeight(30), 0, 0),
-          decoration: BoxDecoration(
-              color: Colors.black12,
-              border:
-                  Border(bottom: BorderSide(width: 1, color: Colors.black12))),
-          child: Text(
-            "${leftdatas[index].favoritesTitle}",
-            style: TextStyle(),
+    if(leftdatas.length!=0){
+      return Container(
+        color: lastindex == index ? Colors.lightBlue : Colors.white,
+        child: InkWell(
+          onTap: () {
+            setState(() {
+              lastindex = index;
+              var child = leftdatas[index].favoritesId;
+              Provide.value<ChangeCate>(context).setGoodId(child);
+            });
+          },
+          child: Container(
+            height: ScreenUtil().setHeight(100),
+            padding: EdgeInsets.fromLTRB(
+                ScreenUtil().setHeight(30), ScreenUtil().setHeight(30), 0, 0),
+            decoration: BoxDecoration(
+                color: Colors.black12,
+                border:
+                Border(bottom: BorderSide(width: 1, color: Colors.black12))),
+            child: Text(
+              "${leftdatas[index].favoritesTitle}",
+              style: TextStyle(),
+            ),
           ),
         ),
-      ),
-    );
+      );
+    }else{
+      return Container(
+        height: ScreenUtils.height(1330),
+        width: ScreenUtils.width(180),
+        child: LoadingWidget(),
+      );
+    }
+
   }
 
   @override

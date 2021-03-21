@@ -5,14 +5,15 @@ import 'package:ticketunion/provider/ChangeCate.dart';
 import 'package:ticketunion/provider/ChangeGood.dart';
 import 'package:ticketunion/tabview/MainTbaview.dart';
 
+import 'route/Application.dart';
+import 'route/Routes.dart';
+
 void main() {
   var changeCate = ChangeCate();
   var changeGood=ChangeGood();
   var providers = Providers();
-
   providers..provide(Provider<ChangeCate>.value(changeCate))
-  ..provide(Provider<ChangeGood>.value(changeGood))
-  ;
+  ..provide(Provider<ChangeGood>.value(changeGood));
 
   runApp(ProviderNode(child: MyApp(), providers: providers));
 }
@@ -25,9 +26,13 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
+
+
   @override
   Widget build(BuildContext context) {
     final router = Router();
+    Routes.configureRoutes(router);
+    Application.router=router;
 
     return MaterialApp(
       theme: ThemeData(
@@ -36,6 +41,7 @@ class MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: "sd",
       home: MainTabView(),
+      onGenerateRoute: Application.router.generator,
     );
   }
 }

@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ticketunion/model/TickModel.dart';
 
 class UserPages extends StatefulWidget {
   @override
@@ -10,6 +12,9 @@ class UserPages extends StatefulWidget {
 }
 
 class UserPagesState extends State<UserPages> {
+
+
+
   //创建头部对象
   Widget topHeader() {
     return Container(
@@ -127,6 +132,27 @@ class UserPagesState extends State<UserPages> {
         ListTitles("优惠价"),
       ],
     );
+  }
+
+   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    postRequestFunction();
+  }
+
+  void postRequestFunction() async {
+    print("开始post");
+    String url="https://api.sunofbeach.net/shop/tpwd";
+    ///创建Dio
+    Dio dio = new Dio();
+    var response = await dio.post(url, data: {"url": "https://uland.taobao.com/coupon/edetail?e=fovVJx7UXJoNfLV8niU3R5TgU2jJNKOfNNtsjZw%2F%2FoLEo2Pb6XDkeejt7bq5jL6fsgZ2vQCyVAUJNOhE9JKjp8uRTiT9oEhVZV8pr6FWc0N2CQ77mbhS9rXtT2pIF%2FCjmMHpNfYdHdBwWfUaU7r%2BdMHdg8oYVc%2FsB3IEI%2FtGZdTSBjM3vXy9T041UyeSsrqpDNJ7jXMyFwklM1ZJHcLCJg%3D%3D&&app_pvid=59590_33.42.169.154_955_1616304869558&ptl=floorId:9660;app_pvid:59590_33.42.169.154_955_1616304869558;tpp_pvid:c8368e44-8bba-434d-8add-1a25a3d89966&union_lens=lensId%3AMAPI%401616304869%40212aa99a_142e_17853471133_20e0%4001"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                });
+
+    setState(() {
+      var result = response.data.toString();
+      TickModel tickModel =  TickModel.fromJson(response.data);
+      print("yyyyPostyyy${tickModel.data.tbkTpwdCreateResponse.data.model}");
+    });
   }
 
   @override

@@ -5,6 +5,7 @@ import 'package:ticketunion/model/RecomGoodModel.dart';
 import 'package:ticketunion/net/HttpManger.dart';
 import 'package:ticketunion/net/config.dart';
 import 'package:ticketunion/provider/ChangeCate.dart';
+import 'package:ticketunion/route/Application.dart';
 import 'package:ticketunion/widgets/ScreenUtils.dart';
 import 'LoadingWidget.dart';
 
@@ -36,12 +37,15 @@ class RightContentState extends State<RightContent> {
 
   Widget _items(index, children) {
     String src = "https:${mapData[index].pictUrl}";
-
+    String url = "${mapData[index].couponShareUrl}";
     return Card(
         elevation: 15.0, //设置阴影
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(14.0))),
         child: InkWell(
+          onTap: (){
+            Application.router.navigateTo(context,"/detail?id=${Uri.encodeComponent(url)}&src=${Uri.encodeComponent(src)}");
+          },
           child: Container(
             width: ScreenUtils.width(500),
             padding: EdgeInsets.all(5.0),
@@ -126,7 +130,11 @@ class RightContentState extends State<RightContent> {
                       }),
                 );
               } else {
-                return LoadingWidget();
+                return Container(
+                  height: ScreenUtils.height(1330),
+                  width: ScreenUtils.width(500),
+                  child: LoadingWidget(),
+                );;
                 ;
               }
             } else {
@@ -142,11 +150,19 @@ class RightContentState extends State<RightContent> {
                       }),
                 );
               } else {
-                return LoadingWidget();
+                return Container(
+                  height: ScreenUtils.height(1330),
+                  width: ScreenUtils.width(500),
+                  child: LoadingWidget(),
+                );
               }
             }
           } else {
-            return LoadingWidget();
+            return Container(
+              height: ScreenUtils.height(1330),
+              width: ScreenUtils.width(500),
+              child: LoadingWidget(),
+            );
           }
         },
       ),
