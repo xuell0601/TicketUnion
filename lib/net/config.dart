@@ -12,4 +12,6 @@ class Config{
   //精选页面的内荣
  static String recomgoods=BASE_URL+"/recommend";
   static String ticurl="https://api.sunofbeach.net/shop/tpwd";
+  //https://api.sunofbeach.net/shop/search?keyword="男装"&page=0
+ static String search="https://api.sunofbeach.net/shop/search";
 }
