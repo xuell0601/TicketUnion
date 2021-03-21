@@ -1,6 +1,7 @@
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ticketunion/route/Application.dart';
 import 'package:ticketunion/widgets/ToastUtil.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'ScreenUtils.dart';
@@ -67,7 +68,7 @@ class SearchWidget extends StatelessWidget {
             flex: 10,
             child: InkWell(
               onTap: () {
-                print("搜送");
+                Application.router.navigateTo(context,"/searc");
               },
               child: Container(
                 height: 48,

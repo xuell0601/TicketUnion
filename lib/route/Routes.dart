@@ -5,6 +5,7 @@ import 'package:fluro/fluro.dart';
 class Routes{
   static String root='/';
   static String detailsPage = '/detail';
+  static String searc= '/searc';
   static void configureRoutes(Router router){
     router.notFoundHandler= new Handler(
         handlerFunc: (BuildContext context,Map<String,List<String>> params){
@@ -13,7 +14,7 @@ class Routes{
     );
 
     router.define(detailsPage,handler:detailsHanderl);
-
+    router.define(searc,handler:search);
   }
 
 }
