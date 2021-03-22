@@ -15,10 +15,14 @@ Flutter版本的领券联盟
 
 项目截图
 ------------------
-![avatar](/screenshots/2.PNG)
-![avatar](/screenshots/11.JPG)
-![avatar](/screenshots/c.JPG)
-![avatar](/screenshots/y2.JPG)
+![avatar](https://img-blog.csdnimg.cn/20210320221048164.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h1ZXNoYW8xMTA=,size_16,color_FFFFFF,t_70)
+![avatar](https://img-blog.csdnimg.cn/20210320221134265.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h1ZXNoYW8xMTA=,size_16,color_FFFFFF,t_70)
+![avatar](https://img-blog.csdnimg.cn/20210320221556786.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h1ZXNoYW8xMTA=,size_16,color_FFFFFF,t_70)
+![avatar](https://img-blog.csdnimg.cn/20210321205820572.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h1ZXNoYW8xMTA=,size_16,color_FFFFFF,t_70)
+![avatar](https://img-blog.csdnimg.cn/20210321205820572.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h1ZXNoYW8xMTA=,size_16,color_FFFFFF,t_70)
+![avatar](https://img-blog.csdnimg.cn/20210321205820572.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h1ZXNoYW8xMTA=,size_16,color_FFFFFF,t_70)
+![avatar](https://img-blog.csdnimg.cn/20210322003148731.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h1ZXNoYW8xMTA=,size_16,color_FFFFFF,t_70)
+![avatar](https://img-blog.csdnimg.cn/20210322003247407.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h1ZXNoYW8xMTA=,size_16,color_FFFFFF,t_70)
 第三方框架
 -----------------
 | 名称        | 作用         |
