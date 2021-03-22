@@ -1,8 +1,14 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ticketunion/model/TickModel.dart';
+import 'package:flutter_bugly/flutter_bugly.dart';
+import 'package:ticketunion/widgets/ToastUtil.dart';
+import 'package:ticketunion/widgets/update_dialog.dart';
+
 
 class UserPages extends StatefulWidget {
   @override
@@ -13,7 +19,7 @@ class UserPages extends StatefulWidget {
 
 class UserPagesState extends State<UserPages> {
 
-
+  GlobalKey<UpdateDialogState> _dialogKey = new GlobalKey();
 
   //创建头部对象
   Widget topHeader() {
@@ -121,19 +127,67 @@ class UserPagesState extends State<UserPages> {
   Widget actionList() {
     return Column(
       children: <Widget>[
-        ListTitles("我的订单"),
-        ListTitles("购物车"),
-        ListTitles("优惠价"),
-        ListTitles("我的订单"),
-        ListTitles("购物车"),
-        ListTitles("优惠价"),
-        ListTitles("我的订单"),
-        ListTitles("购物车"),
-        ListTitles("优惠价"),
+
+          InkWell(
+            onTap: (){
+              if (Platform.isAndroid) {
+                _checkUpgrade();
+              }
+            },
+            child: Text("sdsd"),
+          )
+        // ListTitles("我的订单"),
+        // ListTitles("购物车"),
+        // ListTitles("优惠价"),
+        // ListTitles("我的订单"),
+        // ListTitles("购物车"),
+        // ListTitles("优惠价"),
+        // ListTitles("我的订单"),
+        // ListTitles("购物车"),
+        // ListTitles("优惠价"),
       ],
     );
   }
+  //dio可以监听下载进度，调用此方法
+  void _updateProgress(_progress) {
+    setState(() {
+      _dialogKey.currentState.progress = _progress;
+    });
+  }
 
+  Widget _buildDialog(String version, String url, bool isForceUpgrade) {
+    return WillPopScope(
+        onWillPop: () async => isForceUpgrade,
+        child: UpdateDialog(
+          key: _dialogKey,
+          version: version,
+          onClickWhenDownload: (_msg) {
+            //提示不要重复下载
+          },
+          onClickWhenNotDownload: () {
+            //下载apk，完成后打开apk文件，建议使用dio+open_file插件
+          },
+        ));
+  }
+  void _showUpdateDialog(String version, String url, bool isForceUpgrade) {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (_) => _buildDialog(version, url, isForceUpgrade),
+    );
+  }
+  void _checkUpgrade() {
+    print("获取更新中。。。");
+    FlutterBugly.checkUpgrade().then((UpgradeInfo info) {
+      if (info != null && info.id != null) {
+        print("-------------${info.toString()}---${info.apkUrl}");
+        _showUpdateDialog(info.newFeature, info.apkUrl, info.upgradeType == 2);
+      }else{
+        print("-------------${info.toString()}---");
+        ToastUtil.showToast("in");
+      }
+    });
+  }
    @override
   void initState() {
     // TODO: implement initState

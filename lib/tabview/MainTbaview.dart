@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bugly/flutter_bugly.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ticketunion/pages/CatePages.dart';
 import 'package:ticketunion/pages/HomePages.dart';
@@ -16,22 +17,35 @@ class MainTabView extends StatefulWidget {
 }
 
 class MainTabViewState extends State<MainTabView> {
+  String _platformVersion = 'Unknown';
+
   @override
   void initState() {
     super.initState();
     _pageController = new PageController(initialPage: _currntIndex);
+    //Bugly
+    FlutterBugly.init(
+      androidAppId: "617ee5227e"
+    ).then((_result) {
+      setState(() {
+        _platformVersion = _result.message;
+        print(_result.appId);
+      });
+    });
   }
 
   //创建页面
   final List<Widget> _PagesTab = [
+    UserPages(),
     HomePages(),
     CatePages(),
     SellPages(),
-    SearchPage()
+    SearchPage(),
   ];
 
   //抽取底部组件
   final List<BottomNavigationBarItem> pages = [
+    BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("首页")),
     BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("首页")),
     BottomNavigationBarItem(icon: Icon(Icons.category), title: Text("精选")),
     BottomNavigationBarItem(icon: Icon(Icons.shop), title: Text("特惠")),

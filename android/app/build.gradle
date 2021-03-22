@@ -21,9 +21,14 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+//project.setProperty('target-platform', 'android-arm')
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+def keystorePropertiesFile = rootProject.file("key.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileSdkVersion 28
@@ -32,9 +37,27 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
+//    lintOptions {
+//        disable 'InvalidPackage'
+//    }
+
     lintOptions {
-        disable 'InvalidPackage'
+        //如打包出现Failed to transform libs.jar to match attributes
+        checkReleaseBuilds false
     }
+    defaultConfig {
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi','armeabi-v7a', 'arm64-v8a'
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : "com.example.ticketunion",
+                JPUSH_APPKEY : "e9be531d83d97818cee2e583", // NOTE: JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
+    }
+
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
@@ -46,11 +69,21 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 }
