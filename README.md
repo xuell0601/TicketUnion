@@ -36,6 +36,9 @@ Flutter版本的领券联盟
 |  [flutter_easyrefresh](https://pub.dev/packages/pull_to_refresh)   |  上拉加载和下拉刷新   |
 |  [provide](https://pub.dev/packages/provider)   |  状态管理   |
 
+apk下载地址
+
+[apk]( https://www.91kkz.cn/index/app/fenfa.html?fileurl=16163460633397324)
 
 
 
