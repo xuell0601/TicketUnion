@@ -15,7 +15,6 @@ import 'package:ticketunion/pages/SellPages.dart';
 import 'package:ticketunion/pages/UserPages.dart';
 import 'package:ticketunion/widgets/ScreenUtils.dart';
 import 'package:ticketunion/widgets/ToastUtil.dart';
-import 'package:ticketunion/widgets/VersionUpgrade.dart';
 import 'package:ticketunion/widgets/update_dialog.dart';
 import 'package:file_utils/file_utils.dart';
 class MainTabView extends StatefulWidget {
