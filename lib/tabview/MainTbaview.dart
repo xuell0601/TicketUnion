@@ -59,9 +59,7 @@ class MainTabViewState extends State<MainTabView> {
           },
           onClickWhenNotDownload: () {
             //下载apk，完成后打开apk文件，建议使用dio+open_file插件
-            print("------------开始下载${url}--");
             downApkFunction(url,version);
-
           },
         ));
   }
@@ -73,11 +71,7 @@ class MainTabViewState extends State<MainTabView> {
   }
 
 
-  Future<String> get _apkLocalPath async {
 
-    final directory = await getExternalStorageDirectory();
-    return directory.path;
-  }
 
   ///使用dio 下载文件
   void downApkFunction(String url,version) async{
@@ -86,14 +80,14 @@ class MainTabViewState extends State<MainTabView> {
     if(isPermiss) {
       ///手机储存目录
       print("----------手机储存目录--开始下载--${url}");
-      final path = await _apkLocalPath;
+
 
      String dirloc = "/sdcard/download/";
       FileUtils.mkdir([dirloc]);
       print("-------222---手机储存目录--开始下载--${isPermiss}");
       ///创建DIO
       Dio dio = new Dio();
-      print("-------333---手机储存目录-${path}-开始下载--${url}");
+
       ///参数一 文件的网络储存URL
       ///参数二 下载的本地目录文件
       ///参数三 下载监听
@@ -157,12 +151,7 @@ class MainTabViewState extends State<MainTabView> {
     }
     return false;
   }
-  Future<String> getPhoneLocalPath() async {
-    final directory = Theme.of(context).platform == TargetPlatform.android
-        ? await getExternalStorageDirectory()
-        : await getApplicationDocumentsDirectory();
-    return directory.path;
-  }
+
   ///安装app
   Future<Null> _installApk(String dirloc) async {
     String path = dirloc;
