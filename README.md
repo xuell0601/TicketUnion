@@ -15,10 +15,10 @@ Flutter版本的领券联盟
 
 项目截图
 ------------------
-![avatar](/screenshots/2.jpg)
-![avatar](/screenshots/11.jpg)
-![avatar](/screenshots/c.jpg)
-![avatar](/screenshots/y2.jpg)
+![avatar](/screenshots/2.PNG)
+![avatar](/screenshots/11.JPG)
+![avatar](/screenshots/c.JPG)
+![avatar](/screenshots/y2.JPG)
 第三方框架
 -----------------
 | 名称        | 作用         |
