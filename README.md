@@ -10,6 +10,8 @@ Flutter版本的领券联盟
 * 优惠<br>
 * 扫码<br>
 * .....<br>
+  打包命令   flutter build apk --release --target-platform android-arm64
+
 
 项目截图
 ------------------
@@ -19,6 +21,8 @@ Flutter版本的领券联盟
 -----------------
 | 名称        | 作用         |
 | ------------- |:-------------:|
+|  [ flutter_bugly](https://github.com/best-flutter/flutter_swiper)     |bug收集 版本更新 |
+|  [jpush_flutter](https://github.com/best-flutter/flutter_swiper)     |推送 |
 |  [ fluttertoast](https://github.com/best-flutter/flutter_swiper)     |提示 |
 |  [ barcode_scan](https://girthub.com/best-flutter/flutter_swiper)     |扫码 |
 |  [url_launcher](https://github.com/best-flutter/flutter_swiper)     |第三方跳转 |
