@@ -10,6 +10,7 @@ import 'package:ticketunion/net/HttpManger.dart';
 import 'package:ticketunion/net/config.dart';
 import 'package:ticketunion/provider/ChangeGood.dart';
 import 'package:ticketunion/route/Application.dart';
+import 'package:ticketunion/widgets/CacheImageManger.dart';
 import 'package:ticketunion/widgets/LoadingWidget.dart';
 import 'package:ticketunion/widgets/ScreenUtils.dart';
 class HomeItemPage extends StatefulWidget {
@@ -66,7 +67,7 @@ class HomeItemPageState extends State<HomeItemPage> with AutomaticKeepAliveClien
                 Container(
                   height: ScreenUtils.height(300),
                   width: ScreenUtils.width(350),
-                  child: Image.network(src),
+                  child: CacheImageManger.CaheImage(src),
                 ),
                 Container(
                   height: ScreenUtils.height(300),
@@ -127,7 +128,7 @@ class HomeItemPageState extends State<HomeItemPage> with AutomaticKeepAliveClien
                     Container(
                       height: ScreenUtils.height(300),
                       width: ScreenUtils.width(350),
-                      child: Image.network(src),
+                      child: CacheImageManger.CaheImage(src,height: ScreenUtils.height(300),witdh:ScreenUtils.width(350) ),
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
@@ -349,9 +350,7 @@ class SwiperDiy extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             String src = "https:${swiperDataList[index].pictUrl}";
 
-            return Image.network(
-              src,
-              fit: BoxFit.fill,height: ScreenUtils.height(340),);
+            return CacheImageManger.CaheImage(src,height: ScreenUtils.height(340));
           },
           itemCount: swiperDataList.length,
           pagination: new SwiperPagination(),

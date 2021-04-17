@@ -6,6 +6,7 @@ import 'package:ticketunion/net/HttpManger.dart';
 import 'package:ticketunion/net/config.dart';
 import 'package:ticketunion/provider/ChangeCate.dart';
 import 'package:ticketunion/route/Application.dart';
+import 'package:ticketunion/widgets/CacheImageManger.dart';
 import 'package:ticketunion/widgets/ScreenUtils.dart';
 import 'LoadingWidget.dart';
 
@@ -56,7 +57,7 @@ class RightContentState extends State<RightContent> {
                 Container(
                   height: ScreenUtils.height(360),
                   width: ScreenUtils.width(350),
-                  child: Image.network(src),
+                  child: CacheImageManger.CaheImage(src),
                 ),
 
                 Text(

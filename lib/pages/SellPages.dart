@@ -9,6 +9,7 @@ import 'package:provide/provide.dart';
 import 'package:ticketunion/model/SellModel.dart';
 import 'package:ticketunion/net/HttpManger.dart';
 import 'package:ticketunion/net/config.dart';
+import 'package:ticketunion/widgets/CacheImageManger.dart';
 import 'package:ticketunion/widgets/LoadingWidget.dart';
 import 'package:ticketunion/widgets/ScreenUtils.dart';
 import 'package:ticketunion/route/Application.dart';
@@ -68,7 +69,7 @@ class SellPagesState extends State<SellPages>
                     Container(
                       height: ScreenUtils.height(360),
                       width: ScreenUtils.width(350),
-                      child: Image.network(src),
+                      child: CacheImageManger.CaheImage(src),
                     ),
                     Text(
                       "${item.title}",
